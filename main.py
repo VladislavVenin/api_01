@@ -1,16 +1,31 @@
 import requests
 import urllib.parse
+import argparse
 
 
 def main():
-    host = input("Enter url(Leave the field blank to search https://wttr.in.): ") or "https://wttr.in"
-    places = input("Enter places separated by space: ").split()
-    keys = {}
-    while True:
-        key = input("Enter a key (or press Enter to finish): ")
-        if key == "":
-            break
-        keys[key] = input(f"Enter the value for '{key}': ")
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-hs', "--host",
+                        type=str,
+                        help="url",
+                        default="https://wttr.in")
+    parser.add_argument('-p', "--places",
+                        type=str,
+                        help="places",
+                        nargs='*',
+                        default=['svo'])
+    parser.add_argument('-k', "--keys",
+                        type=str,
+                        help="key=value pairs",
+                        nargs='*')
+    args = parser.parse_args()
+    host = args.host
+    places = args.places
+    keys = args.keys
+    if not keys:
+        keys = ""
+    else:
+        keys = dict(item.split('=') for item in keys)
 
     for place in places:
         try:
