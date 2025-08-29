@@ -22,9 +22,7 @@ def main():
     host = args.host
     places = args.places
     keys = args.keys
-    if not keys:
-        keys = ""
-    else:
+    if keys:
         keys = dict(item.split('=') for item in keys)
 
     for place in places:
@@ -39,3 +37,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
