@@ -15,9 +15,10 @@ def main():
         except:
             print("bad url")
             break
-        if response.status_code == 200 and response.ok is True:
+        if response.ok:
             print(response.text)
 
 
 if __name__ == '__main__':
     main()
+
