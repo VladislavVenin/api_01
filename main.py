@@ -12,7 +12,7 @@ def main():
     for place in places:
         try:
             response = requests.get(urllib.parse.urljoin(host, place), params=keys)
-        except:
+        except requests.exceptions.ConnectionError:
             print("bad url")
             break
         if response.ok:
@@ -21,4 +21,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
