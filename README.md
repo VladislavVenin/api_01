@@ -12,8 +12,12 @@ pip install requests==2.32.4
 2. `--places` - локации по которым идёт поиск, по стандарту ищется прогноз для Международного аэропорта Шереметьево
 3. `--keys` - ключи и параметры поиска в виде пар `key=value`
 
+```
+python main.py -p london -k nTqmM= lang=ru
+```
 В результате программа выведет текст с прогнозом погоды по полученной ссылке:
 <img width="708" height="637" alt="image" src="https://github.com/user-attachments/assets/343dad8d-8788-4d20-9cb6-b96e6efbf899" />
+
 
 
 
