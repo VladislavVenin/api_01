@@ -13,7 +13,7 @@ def main():
                         type=str,
                         help="places",
                         nargs='*',
-                        default=['fhdhdgfbdfgh'])
+                        default=['svo'])
     parser.add_argument('-k', "--keys",
                         type=str,
                         help="key=value pairs",
@@ -39,3 +39,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
