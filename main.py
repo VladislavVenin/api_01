@@ -13,7 +13,7 @@ def main():
                         type=str,
                         help="places",
                         nargs='*',
-                        default=['svo'])
+                        default=['fhdhdgfbdfgh'])
     parser.add_argument('-k', "--keys",
                         type=str,
                         help="key=value pairs",
@@ -23,18 +23,19 @@ def main():
     places = args.places
     keys = args.keys
     if keys:
-        keys = dict(item.split('=') for item in keys)
+        keys = dict(key.split('=') for key in keys)
 
     for place in places:
         try:
             response = requests.get(urllib.parse.urljoin(host, place), params=keys)
         except requests.exceptions.ConnectionError:
-            print("bad url")
+            print("The host contains errors or is written in an invalid format")
             break
-        if response.ok:
+        if not response.ok:
+            print(response.status_code)
+        else:
             print(response.text)
 
 
 if __name__ == '__main__':
     main()
-
