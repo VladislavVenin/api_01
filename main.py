@@ -29,7 +29,7 @@ def main():
         try:
             response = requests.get(urllib.parse.urljoin(host, place), params=keys)
         except requests.exceptions.ConnectionError:
-            print("The host contains errors or is written in an invalid format")
+            print("The host name contains errors or is written in an invalid format")
             break
         if not response.ok:
             print(response.status_code)
@@ -39,4 +39,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
